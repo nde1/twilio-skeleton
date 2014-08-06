@@ -18,6 +18,10 @@ class Usermeta extends Model{
     }
 }
 
+class Call extends Model{
+	public static $_table = 'calls';
+}
+
 class Post extends Model{
     public function user() {
         return $this->belongs_to('User');

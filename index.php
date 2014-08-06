@@ -2,8 +2,8 @@
 $_GET['route'] = isset($_GET['route']) ? '/'.$_GET['route'] : '/';
 
 // Check for composer installed
-if (file_exists('../vendor/autoload.php')){
-	include_once('../vendor/autoload.php');
+if (file_exists('vendor/autoload.php')){
+	include_once('vendor/autoload.php');
 }else{
 	echo '{"error":"Composer Install"}';
 	header('HTTP/1.1 500 Internal Server Error', true, 500);
