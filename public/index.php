@@ -2,8 +2,8 @@
 $_GET['route'] = isset($_GET['route']) ? '/'.$_GET['route'] : '/';
 
 // Check for composer installed
-if (file_exists('vendor/autoload.php')){
-	include_once('vendor/autoload.php');
+if (file_exists('../vendor/autoload.php')){
+	include_once('../vendor/autoload.php');
 }else{
 	echo '{"error":"Composer Install"}';
 	header('HTTP/1.1 500 Internal Server Error', true, 500);
@@ -39,9 +39,6 @@ if( $app->option('pusher.enabled') != false ){
 
 	//	store our Pusher client in our session store...
 	$app->store('pusher',$pusher);
-/*
-$pusher->trigger($config['pusher.channel'], strtolower(trim($_POST['Body'])), array('file' => $file, 'country' => $_POST['FromCountry'], 'datetime' => date('F jS Y H:i:s e')) );
-*/
 }
 
 if( $app->option('pdo.enabled') != false ){
@@ -90,13 +87,8 @@ $app->post('/signup', 'signup#post' );
 
 
 //	Twilio listener	--------------------------------------------------------------------------------------------
-/*
+
 $app->route('/listener', 'callController#answer');
-$app->route('/listener/screencall', 'callController#screencall');
-$app->route('/listener/completecall', 'callController#completecall');
-$app->route('/listener/attemptcall', 'callController#attemptcall');
-$app->route('/calls', 'callController#log');
-*/
 
 
 //	Twimlets	--------------------------------------------------------------------------------------------
@@ -125,14 +117,14 @@ $app->get('/dashboard', function() use ($app){
 });
 
 //	User	--------------------------------------------------------------------------------------------
-/*
+
 $app->get('/user', 'userController#mylist');
 $app->get('/user/edit/:user_id', 'userController#edit');
 $app->post('/user/edit/:user_id', 'userController#save');
 $app->get('/user/new', 'userController#addnew');
 $app->post('/user/new', 'userController#savenew');
 $app->get('/user/delete/:user_id', 'userController#delete');
-*/
+
 
 //	home page --------------------------------------------------------------------------------------------
 

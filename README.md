@@ -16,6 +16,6 @@ After you install Composer, run this command from the directory in which you wan
 
     php composer.phar create-project freekrai/twilio-skeleton [my-app-name]
 
-Replace <code>[my-app-name]</code> with the desired directory name for your new application. You'll want to point your virtual host document root to your new application's `public/` directory.
+Replace <code>[my-app-name]</code> with the desired directory name for your new application. You'll want to point your virtual host document root to your new application's directory.
 
 That's it! Now go build something cool.
