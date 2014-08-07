@@ -89,7 +89,7 @@ $app->post('/signup', 'signup#post' );
 //	Twilio listener	--------------------------------------------------------------------------------------------
 
 $app->route('/listener', 'callController#answer');
-
+$app->route('/calls', 'callController#log');
 
 //	Twimlets	--------------------------------------------------------------------------------------------
 

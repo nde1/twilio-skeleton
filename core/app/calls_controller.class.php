@@ -44,4 +44,13 @@ class callController extends \Jolt\Controller{
 		</Response>
 <?php
     }
+	function log(){
+		$action = isset($_GET['action']) ? $_GET['action'] : 'today';
+//		$results = get_usage( $action );
+		$results = $this->app->store('client')->account->calls->getPage(0, 50, array())->getItems();
+		$this->app->render( 'calls/log', array(
+			"pageTitle"=>"Call Log",
+			'results'=>$results,
+		),'inside');
+	}
 }
