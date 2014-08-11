@@ -30,21 +30,21 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/dashboard"><?= $sitename ?></a>
+					<a class="navbar-brand" href="<?=$uri?>/dashboard"><?= $sitename ?></a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/dashboard">Dashboard</a></li>
-						<li><a href="/calls">Call Log</a></li>
+						<li><a href="<?=$uri?>/dashboard">Dashboard</a></li>
+						<li><a href="<?=$uri?>/calls">Call Log</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="/user">Users</a></li>
-								<li><a class="modalButton" data-toggle="modal" data-src="/user/new?embed=1" data-title="Add New User" data-target="#modalbox">Add New User</a></li>
+								<li><a href="<?=$uri?>/user">Users</a></li>
+								<li><a class="modalButton" data-toggle="modal" data-src="<?=$uri?>/user/new?embed=1" data-title="Add New User" data-target="#modalbox">Add New User</a></li>
 							</ul>
 						</li>
-						<li><a class="modalButton" data-toggle="modal" data-src="/user/edit/<?php echo $me->id?>?embed=1" data-title="Edit Profile" data-target="#modalbox">Edit Profile</a></li>
-						<li><a href="/logout">Logout</a></li>
+						<li><a class="modalButton" data-toggle="modal" data-src="<?=$uri?>/user/edit/<?php echo $me->id?>?embed=1" data-title="Edit Profile" data-target="#modalbox">Edit Profile</a></li>
+						<li><a href="<?=$uri?>/logout">Logout</a></li>
 					</ul>
 				</div>
 			</div>

@@ -76,6 +76,7 @@ function nice_date($date){
 }
 
 function get_all_twilio_numbers() {
+	$app = \Jolt\Jolt::getInstance();
 	$ApiVersion = "2010-04-01";
 	$twilio_numbers=array();
 	$client = new Services_Twilio($app->option('twilio.accountsid'), $app->option('twilio.authtoken') );

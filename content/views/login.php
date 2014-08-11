@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class="container">
-		<form class="form-signin" role="form" method="POST" action="/login">
+		<form class="form-signin" role="form" method="POST" action="<?=$uri?>/login">
 			<h2 class="form-signin-heading">Please sign in</h2>
 			<input type="text" name="user" class="form-control" placeholder="User name" required autofocus>
 			<input type="password" name="pass" class="form-control" placeholder="Password" required>
