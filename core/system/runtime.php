@@ -75,6 +75,17 @@ function nice_date($date){
 	return date('M j, Y', $timestamp).'<br />'.date('H:i:s T', $timestamp );
 }
 
+function get_all_twilio_numbers() {
+	$ApiVersion = "2010-04-01";
+	$twilio_numbers=array();
+	$client = new Services_Twilio($app->option('twilio.accountsid'), $app->option('twilio.authtoken') );
+	// Loop over the list of numbers and echo a property for each one
+	foreach ($client->account->incoming_phone_numbers as $number) {
+    	$twilio_numbers[format_phone($number->phone_number)]=$number->phone_number;
+	}	
+	return $twilio_numbers;
+}
+
 /*
  *	format telephone number for display
  */

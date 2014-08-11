@@ -45,12 +45,25 @@ class callController extends \Jolt\Controller{
 <?php
     }
 	function log(){
-		$action = isset($_GET['action']) ? $_GET['action'] : 'today';
-//		$results = get_usage( $action );
-		$results = $this->app->store('client')->account->calls->getPage(0, 50, array())->getItems();
+		$log  = Model::factory('Call')->find_many();
+		$calls = array();
+		foreach($log as $row){
+			$call = array();
+			$call['CallSid'] = $row->CallSid;
+			$call['CallFrom'] = $row->CallFrom;
+			$call['CallTo'] = $row->CallTo;
+			$call['FromCity'] = $row->FromCity;
+			$call['FromState'] = $row->FromState;
+			$call['FromZip'] = $row->FromZip;
+			$call['DialCallDuration'] = $row->DialCallDuration;
+			$call['DialCallStatus'] = $row->DialCallStatus;
+			$call['RecordingUrl'] = $row->RecordingUrl;
+			$call['DateCreated'] = $row->DateCreated;
+			$calls[] = $call;
+		}
 		$this->app->render( 'calls/log', array(
 			"pageTitle"=>"Call Log",
-			'results'=>$results,
+			'calls'=>$calls,
 		),'inside');
 	}
 }
