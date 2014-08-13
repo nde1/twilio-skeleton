@@ -20,6 +20,16 @@ Replace <code>[my-app-name]</code> with the desired directory name for your new 
 
 Edit config.ini with your configuration settings, and that's it! Now go build something cool.
 
+## Built-in server
+
+With PHP 5.4 and up, we have a built-in web server, this is handy for local development.
+
+You can run your new app locally using the following command in the terminal:
+
+	php -S localhost:8888 server.php
+	
+This will route all processes through the server.php file, which whill then treat this the same as if it was on a web server. This lets you handle local development nicely.
+
 ## Structure
 
 The Twilio Skeleton Application comes complete with a few pieces already in place.
