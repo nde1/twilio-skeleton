@@ -17,3 +17,9 @@ After you install Composer, run this command from the directory in which you wan
     php composer.phar create-project freekrai/twilio-skeleton [my-app-name]
 
 Replace <code>[my-app-name]</code> with the desired directory name for your new application. You'll want to point your virtual host document root to your new application's directory.
+
+## Configure the Application
+
+In a text editor, go to app/config/ and open the twilio.php file.
+
+Edit your AccountSid, AuthToken and FromNumber variables with your Twilio account information.

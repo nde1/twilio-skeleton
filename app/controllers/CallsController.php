@@ -7,10 +7,13 @@ class CallsController extends BaseController {
 		return Calls::find($id);	
 	}
 	public function getSms(){
-		$client = new Services_Twilio('AccountSid', 'AuthToken' );
-		$fromNumber = 'TwilioNumber';
+
+		$client = new Services_Twilio(
+			Config::get('twilio.AccountSid'), 
+			Config::get('twilio.AuthToken') 
+		);
 		$sms = $client->account->messages->sendMessage(
-			$fromNumber, 
+			Config::get('twilio.FromNumber'), 
 			'YourNumber',
 			"Hey, Monkey Party at 6PM. Bring Bananas!"
 		);
