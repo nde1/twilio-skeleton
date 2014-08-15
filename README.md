@@ -1,6 +1,6 @@
 # Twilio Skeleton Application built on the Laravel framework
 
-Use this skeleton application to quickly setup and start working on a new Twilio application. This application uses the latest Jolt and Twilio repositories.
+Use this skeleton application to quickly setup and start working on a new Twilio application. This application uses the latest Laravel and Twilio repositories.
 
 This skeleton application was built for Composer. This makes setting up a new Twilio application quick and easy.
 
@@ -12,7 +12,7 @@ If you have not installed Composer, do that now. I prefer to install Composer gl
 
 ## Install the Application
 
-After you install Composer, run this command from the directory in which you want to install your new Jolt Framework application.
+After you install Composer, run this command from the directory in which you want to install your new Laravel Framework application.
 
     php composer.phar create-project freekrai/twilio-skeleton [my-app-name]
 
