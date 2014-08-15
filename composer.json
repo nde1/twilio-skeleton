@@ -17,7 +17,7 @@
         "twilio/sdk": "dev-master",
         "pusher/pusher-php-server": "dev-composer",
 		 "freekrai/simperium-php": "dev-master",
-        "gregwar/image": "dev-adapter",
+        "gregwar/image": "dev-adapter"
 	},
 	"autoload": {
 		"classmap": [
