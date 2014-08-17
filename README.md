@@ -10,6 +10,10 @@ If you have not installed Composer, do that now. I prefer to install Composer gl
 
 <http://getcomposer.org/doc/00-intro.md#installation>
 
+If not, you can install it from the terminal using this command:
+
+	curl -s https://getcomposer.org/installer | php
+
 ## Install the Application
 
 After you install Composer, run this command from the directory in which you want to install your new Laravel Framework application.
