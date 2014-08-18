@@ -28,29 +28,29 @@ class CallsController extends BaseController {
 			    return Response::make('You need to fill all of the input fields', 400);
 			}
 			$call = new Calls;
-			$call->CallSid = $input('CallSid');
-			$call->AccountSid=$input('AccountSid');
-			$call->CallFrom=$input('From');
-			$call->CallTo=$input('To');
-			$call->CallStatus=$input('CallStatus');
-			$call->ApiVersion=$input('ApiVersion');
-			$call->Direction=$input('Direction');
+			$call->CallSid = $input['CallSid'];
+			$call->AccountSid=$input['AccountSid'];
+			$call->CallFrom=$input['From'];
+			$call->CallTo=$input['To'];
+			$call->CallStatus=$input['CallStatus'];
+			$call->ApiVersion=$input['ApiVersion'];
+			$call->Direction=$input['Direction'];
 	
 			if ($input['FromCity'] != '' ) {
-				$call->FromCity=$input('FromCity');
-				$call->FromState=$input('FromState');
-				$call->FromZip=$input('FromZip');
-				$call->FromCountry=$input('FromCountry');
+				$call->FromCity=$input['FromCity'];
+				$call->FromState=$input['FromState'];
+				$call->FromZip=$input['FromZip'];
+				$call->FromCountry=$input['FromCountry'];
 			} else {
 				$call->FromCity="";
 				$call->FromState="";
 				$call->FromZip="";
 				$call->FromCountry="";
 			}
-			$call->ToCity=$input('ToCity');
-			$call->ToState=$input('ToState');
-			$call->ToZip=$input('ToZip');
-			$call->ToCountry=$input('ToCountry');
+			$call->ToCity=$input['ToCity'];
+			$call->ToState=$input['ToState'];
+			$call->ToZip=$input['ToZip'];
+			$call->ToCountry=$input['ToCountry'];
 			$call->DateCreated 	= date('Y-m-d H:i:s');
 			$call->save();
 			return $call;
