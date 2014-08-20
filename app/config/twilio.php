@@ -11,6 +11,11 @@ return array(
      */
     "AuthToken" => "",
 
+	/**
+	*	app id - Application ID that you will be using from your Twilio account.
+	*/
+	"AppId" => "",
+
     /**
      * from - The Phone number registered with Twilio that your SMS & Calls will come from
      */
