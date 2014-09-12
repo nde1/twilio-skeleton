@@ -6,18 +6,24 @@ class CallsController extends BaseController {
 		$id = Input::get('id');
 		return Calls::find($id);	
 	}
-	public function getSms(){
 
+	public function getSms(){
 		$client = new Services_Twilio(
 			Config::get('twilio.AccountSid'), 
 			Config::get('twilio.AuthToken') 
 		);
-		$sms = $client->account->messages->sendMessage(
-			Config::get('twilio.FromNumber'), 
-			'YourNumber',
-			"Hey, Monkey Party at 6PM. Bring Bananas!"
-		);
+		try {
+			$message= $client->account->messages->sendMessage(
+				Config::get('twilio.FromNumber'), 
+				'YourNumber',
+				"Hey, Monkey Party at 6PM. Bring Bananas!"
+			);
+			echo $message->sid; // Twilio's identifier for the new message
+		} catch (Services_Twilio_RestException $e) {
+			echo $e->getMessage(); // A message describing the REST error
+		}
 	}
+	
 	public function getAll() {
 		return Calls::all();
 	}
