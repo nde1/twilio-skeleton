@@ -15,7 +15,7 @@
 	"require": {
 		"laravel/framework": "4.2.*",
         "twilio/sdk": "dev-master",
-        "pusher/pusher-php-server": "dev-composer",
+        "pusher/pusher-php-server": "dev-master",
 		 "freekrai/simperium-php": "dev-master",
         "gregwar/image": "dev-adapter"
 	},
