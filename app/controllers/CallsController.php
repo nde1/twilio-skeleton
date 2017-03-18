@@ -2,6 +2,84 @@
 
 class CallsController extends BaseController {
 	
+	public function getQueues(){
+    $client = new Services_Twilio(
+        Config::get('twilio.AccountSid'), 
+        Config::get('twilio.AuthToken') 
+    );
+    $queues = $client->account->queues;
+?>
+    <table>
+    <thead>
+    <tr>
+        <th>Sid</th>
+        <th>Friendly Name</th>
+        <th>Callers On Hold</th>
+        <th>Average Wait Time (in seconds)</th>
+    </tr>
+    </thead>
+    <tbody>
+<?php
+    foreach($queues as $queue) {
+?>
+        <tr>
+            <td><a href="/calls/queue?qid=<?php echo $queue->sid ?>"><?php echo $queue->sid?></a></td>
+            <td><?php echo $queue->friendly_name?></td>
+            <td><?php echo $queue->current_size." / ".$queue->max_size ?></td>
+            <td><?php echo $queue->average_wait_time?></td>
+        </tr>
+<?php
+    }
+?>
+    </tbody>
+    </table>
+<?php
+}
+
+public function getQueue(){
+    $client = new Services_Twilio(
+        Config::get('twilio.AccountSid'), 
+        Config::get('twilio.AuthToken') 
+    );
+    $qid = $_GET['qid'];
+    $has_calls=false;
+
+    $queue = $client->account->queues->get($qid);
+    $members = $client->account->queues->get($qid)->members;
+    echo '<h1>'.$queue->friendly_name.' Callers</h1>';
+?>
+    <table>
+    <thead>
+    <tr>
+        <th>CallSid</th>
+        <th>Phone Number</th>
+        <th>Wait Time</th>
+        <th>Position</th>
+    </tr>
+    </thead>
+    <tbody>
+<?php
+    foreach($members as $member) {
+        $call = $client->account->calls->get( $member->call_sid );
+        $has_calls=true;
+
+?>
+        <tr>
+            <td><?php echo $member->call_sid?></a></td>
+            <td><?php echo $call->from;?></td>
+            <td><?php echo $member->wait_time?></td>
+            <td><?php echo $member->position ?></td>
+        </tr>
+<?php
+    }
+?>
+    </tbody>
+    </table>
+<?php
+    if (!$has_calls){
+        echo ("No callers currently in the queue");
+    }
+}
 	public function getIndex() {
 		$id = Input::get('id');
 		return Calls::find($id);	
